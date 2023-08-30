@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<br/>
+<h1 align="center">NoteGPT</h1>
+<br/>
+<form method="POST">
+    <textarea name="note" id="note" class="form-control" placeholder="Add Note to NoteGPT"></textarea>
+    <br/>
+    <div align="center">
+        <button type="submit" class="btn btn-primary">Add Note</button>
+    </div>
+</form>
+<br/>
+<dl class="row" id="notes">
+    {% for note in user.notes %}
+    <dt class="col-sm-4">
+        <div class="card border-primary mb-3" style="max-width: 48rem;">
+            <div class="card-body text-primary">
+              <p class="card-text">  <strong>You: </strong>{{ note.data }} <br/><p><strong>GPT: </strong></p>{{note.gpt}}
+              <button type="button" class="close" onclick="deleteNote({{ note.id }})">
+              <span aria-hidden="true">&times;</span></button></p>
+            </div>
+            <div class="card-footer bg-transparent border-primary">{{note.date}}</div>
+          </div>
+    </dt>
+    {% endfor %}
+</dl>
+
+{% endblock %}
