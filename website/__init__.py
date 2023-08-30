@@ -11,8 +11,8 @@ DB_NAME="dabase.db"
 
 def create_app():
     app = Flask(__name__)
-    oa.api_key="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"
-    app.config["SECRET_KEY"]= "benjidevpythontimewithtim939905"
+    oa.api_key=""
+    app.config["SECRET_KEY"]= "benjidevpythontime939905"
     app.config["SQLALCHEMY_DATABASE_URI"]=f'sqlite:///{DB_NAME}'
     db.init_app(app)
 
